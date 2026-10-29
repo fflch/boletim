@@ -59,7 +59,7 @@ class BoletimForm extends FormBase {
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    $timezone = drupal_get_user_timezone();
+    $timezone = \Drupal::currentUser()->getTimeZone();
     $config = \Drupal::config('boletim.settings');
     $body = $config->get('header.value');
     $old_date = null;
