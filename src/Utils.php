@@ -10,7 +10,7 @@ class Utils{
 
   public static function getNodes($bundle, $title ,$after_field = 'changed', $from = 'now', $to = '+14 days'){
 
-    $timezone = drupal_get_user_timezone();
+    $timezone = \Drupal::currentUser()->getTimeZone();
     $start = new \DateTime($from, new \DateTimeZone($timezone));
     $start->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     $start->setTime(21,0);
